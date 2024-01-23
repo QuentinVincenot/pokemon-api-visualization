@@ -10,18 +10,20 @@
 </head>
 
 <body>
-    <!--  -->
+    <!-- Title dedicated space, to properly introduce the application -->
     <div class="application_title">Pokémon API</div>
 
-    <!--  -->
+    <!-- Global container to integrate every applicative and visual blocks -->
     <div class="global_container">
 
+        <!-- Container to integrate the research functionality -->
         <div class="search_container">
             <label for="search_bar">Pokémon Name:</label>
             <input id="search_bar" type="search">
             <button id="search_button">Search</button>
         </div>
 
+        <!-- Container to integrate the Pokémon data visual rendering -->
         <div class="pokemon_container">
             <div class="pokemon_name_container">Pokémon name:</div>
             <div class="pokemon_types_container">Pokémon types:</div>
@@ -31,8 +33,11 @@
 
     </div>
 
-    <!-- Import the specific script to retrieve pokemon data through the Pokémon API (pokeapi.co) -->
+    <!-- Import the specific script to retrieve Pokémon data through the Pokémon API (pokeapi.co) -->
     <script type="text/javascript" src="scripts_data/data_retrieval.js"></script>
+
+    <!-- Import the specific script to research Pokémons with the search bar and display their information -->
+    <script type="text/javascript" src="scripts_data/data_research.js"></script>
 </body>
 
 </html>

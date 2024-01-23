@@ -2,7 +2,7 @@
 ----- RETRIEVED DATA INFORMATION ABOUT POKEMONS
 --------------------------------------------------------------------------------*/
 
-// 
+// Function to retrieve data about Pokémons (names, types, stats, images, etc.)
 function retrieve_pokemon_data() {
     // First API call to retrieve the list of every Pokémon
     fetch('https://pokeapi.co/api/v2/pokemon?limit=1025&offset=0').then(response => {
@@ -47,6 +47,6 @@ function retrieve_pokemon_data() {
 }
 
 
-// 
+// Call the data retrieval function to get intitial Pokémon data from online source (pokeapi.co)
 let POKEMON_DATA = [];
 retrieve_pokemon_data();
