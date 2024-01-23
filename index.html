@@ -6,12 +6,12 @@
     <meta charset="UTF-8">
 
     <!-- Main title of the application page displayed on the browser tab -->
-    <title>Pokémon API</title>
+    <title>Pokémon API Analysis</title>
 </head>
 
 <body>
     <!--  -->
-    <div class="dashboard_title">Pokémon API</div>
+    <div class="application_title">Pokémon API</div>
 
     <!--  -->
     <div class="global_container">
@@ -22,20 +22,17 @@
             <button id="search_button">Search</button>
         </div>
 
-        Pikachu stats :<br/>
-        <div>
-            HP: <span id="pikachu-hp"></span><br/>
-            ATK: <span id="pikachu-atk"></span><br/>
-            DEF: <span id="pikachu-def"></span><br/>
-            SPA: <span id="pikachu-spa"></span><br/>
-            SDF: <span id="pikachu-sdf"></span><br/>
-            SPD: <span id="pikachu-spd"></span>
+        <div class="pokemon_container">
+            <div class="pokemon_name_container">Pokémon name:</div>
+            <div class="pokemon_types_container">Pokémon types:</div>
+            <div class="pokemon_image_container">Pokémon image:</div>
+            <div class="pokemon_stats_container">Pokémon stats:</div>
         </div>
 
     </div>
 
-    <!--  -->
-    <script type="text/javascript" src="scripts_data/data_generation.js"></script>
+    <!-- Import the specific script to retrieve pokemon data through the Pokémon API (pokeapi.co) -->
+    <script type="text/javascript" src="scripts_data/data_retrieval.js"></script>
 </body>
 
 </html>
