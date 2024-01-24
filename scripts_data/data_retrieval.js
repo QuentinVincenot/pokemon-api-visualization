@@ -42,7 +42,6 @@ async function retrieve_pokemon_data() {
 
     // Put every Pokémon names in a single and sorted list to display suggestions on search
     for(let i=0; i<POKEMON_DATA.length; i++) {
-        console.log(POKEMON_DATA[i]['Name'].toLowerCase());
         POKEMON_SORTED_NAMES.push(POKEMON_DATA[i]['Name'].toLowerCase());
     }
     POKEMON_SORTED_NAMES.sort();
