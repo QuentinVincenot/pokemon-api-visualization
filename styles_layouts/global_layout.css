@@ -1,0 +1,86 @@
+/*--------------------------------------------------------------------------------
+----- Global page organisation
+--------------------------------------------------------------------------------*/
+
+/* Import the font resource to use Roboto */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap');
+
+/* Configure the HTML body to be restricted to a centered fixe-sized zone of the page */
+body {
+    width: 800px;
+    margin: auto;
+}
+
+/*--------------------------------------------------------------------------------
+----- Application title configuration
+--------------------------------------------------------------------------------*/
+
+/* Configure the application title with a dedicated colored/sized/bordered zone */
+.application_title {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+/*--------------------------------------------------------------------------------
+----- Application containers layout
+--------------------------------------------------------------------------------*/
+
+/* Configure the layout of the global container, containing other containers and visualisations */
+.global_container {
+    width: 800px;
+    height: 500px;
+    margin-top: 5px;
+}
+
+/* Configuration of the global search container with the search bar, button and suggestions */
+.search_container {
+    height: 100px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+}
+
+/* Configuration of the search zone inside the search container (to be centered) */
+.search_zone {
+    position: relative;
+    top: 20px;
+    left: 100px;
+    width: 600px;
+    height: 40px;
+    padding-top: 20px;
+}
+
+/* Display and alignment of the label in front of the search bar */
+#search_label {
+    display: inline-block;
+    width: 150px;
+    margin-left: 25px;
+    text-align: right;
+}
+
+/* Configuration of the search bar to have a certain length */
+#search_bar {
+    display: inline-block;
+    width: 300px;
+}
+
+/* Configuration (margin) of the 'Search' button */
+#search_button {
+    margin-right: 25px;
+}
+
+/* Configuration of the pokemon container to display results and information on searched Pokémon */
+.pokemon_container {
+    height: 350px;
+    margin-top: 5px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+}

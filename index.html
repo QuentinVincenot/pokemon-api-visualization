@@ -7,21 +7,26 @@
 
     <!-- Main title of the application page displayed on the browser tab -->
     <title>Pokémon API Analysis</title>
+
+    <!--  -->
+    <link rel="stylesheet" href="styles_layouts/global_layout.css">
 </head>
 
 <body>
     <!-- Title dedicated space, to properly introduce the application -->
-    <div class="application_title">Pokémon API</div>
+    <div class="application_title">Pokémon API analysis</div>
 
     <!-- Global container to integrate every applicative and visual blocks -->
     <div class="global_container">
 
         <!-- Container to integrate the research functionality -->
         <div class="search_container">
-            <label for="search_bar">Pokémon Name:</label>
-            <input id="search_bar" type="search">
-            <button id="search_button">Search</button>
-            <ul id="search_suggestions"></ul>
+            <div class="search_zone">
+                <label id="search_label" for="search_bar">Pokémon name:</label>
+                <input id="search_bar" type="search">
+                <button id="search_button">Search</button>
+                <ul id="search_suggestions"></ul>
+            </div>
         </div>
 
         <!-- Container to integrate the Pokémon data visual rendering -->
