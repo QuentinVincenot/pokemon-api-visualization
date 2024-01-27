@@ -76,6 +76,23 @@ body {
     margin-right: 25px;
 }
 
+#search_suggestions {
+    width: 258px;
+    position: relative;
+    left: 180px;
+    top: -16px;
+    background-color: green;
+}
+
+#search_suggestions > li {
+    position: relative;
+    left: -30px;
+    height: 25px;
+    line-height: 25px;
+    list-style-type: none;
+    border: dashed 1px #ccc;
+}
+
 /* Configuration of the pokemon container to display results and information on searched Pokémon */
 .pokemon_container {
     height: 350px;
