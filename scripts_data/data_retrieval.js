@@ -21,12 +21,23 @@ async function retrieve_pokemon_data() {
         let response2 = await fetch(data['results'][pokemon_id-1]['url']);
         let pokemon_data = await response2.json();
 
+        // Retrieve the types of the current Pokémon
+        let pokemon_types = pokemon_data['types'];
+        let first_type = pokemon_types[0]['type']['name'];
+        let second_type = null;
+        // Process the case where the Pokémon has two types
+        if(pokemon_types.length == 2) {
+            second_type = pokemon_types[1]['type']['name'];
+        }
+
         // Retrieve the base statistics of the current Pokémon
         let pokemon_stats = pokemon_data['stats'];
         // Build the complete Pokémon data object with retrieved information
         let current_pokemon_data = {
             'ID': pokemon_id,
             'Name': pokemon_name,
+            'Type 1': first_type,
+            'Type 2': second_type,
             'Stats': {
                 'HP':               pokemon_stats[0]['base_stat'],
                 'Attack':           pokemon_stats[1]['base_stat'],

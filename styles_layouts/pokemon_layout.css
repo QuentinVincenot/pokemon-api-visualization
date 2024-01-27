@@ -39,8 +39,15 @@
     margin-top: 25px;
     float: left;
     text-align: center;
-    line-height: 50px;
+    line-height: 63px;
     background-color: green;
+}
+
+/* Pokémon types icons size configuration */
+.pokemon_types_container img {
+    width: 120px;
+    display: inline-block;
+    margin-right: 5px;
 }
 
 .pokemon_image_container {

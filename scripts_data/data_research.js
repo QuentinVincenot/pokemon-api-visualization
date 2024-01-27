@@ -87,8 +87,13 @@ function display_searched_pokemon_data(pokemon_array) {
         // Display the Pokémon data into the dedicated space for search result
         let capitalized_pokemon_name = pokemon_data['Name'].substr(0, 1).toUpperCase() + pokemon_data['Name'].slice(1);
         document.getElementById('pokemon_name').innerHTML = capitalized_pokemon_name;
-        document.getElementById('pokemon_types').innerHTML = '';
+        let formatted_pokemon_types = '<img src="images/pokemon-types/type_' + pokemon_data['Type 1'] + '_bulbapedia.png" style="width:120px;"/>';
+        if(pokemon_data['Type 2'] !== null) {
+            formatted_pokemon_types += '<img src="images/pokemon-types/type_' + pokemon_data['Type 2'] + '_bulbapedia.png" style="width:120px;"/>';
+        }
+        document.getElementById('pokemon_types').innerHTML = formatted_pokemon_types;
         document.getElementById('pokemon_image').innerHTML = '';
+        // Format and display the various statistics of the Pokémon
         let formatted_pokemon_stats = '<b>HP</b>: ' + pokemon_data['Stats']['HP'] + '<br/>';
         formatted_pokemon_stats += '<b>Attack</b>: ' + pokemon_data['Stats']['Attack'] + '<br/>';
         formatted_pokemon_stats += '<b>Defense</b>: ' + pokemon_data['Stats']['Defense'] + '<br/>';
