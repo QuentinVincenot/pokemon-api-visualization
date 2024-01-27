@@ -18,7 +18,8 @@
     border-radius: 12px;
 }
 
-.pokemon_name_container {
+/* General configuration (size, font, alignment) of the Pokémon name container */
+#pokemon_name_container {
     width: 350px;
     height: 50px;
     margin-top: 25px;
@@ -26,14 +27,12 @@
     float: left;
     text-align: center;
     line-height: 50px;
+    font-family: 'Roboto', sans-serif;
     background-color: blue;
 }
 
-#pokemon_name {
-    font-family: 'Roboto', sans-serif;
-}
-
-.pokemon_types_container {
+/* General configuration (size, alignment) of the Pokémon types container */
+#pokemon_types_container {
     width: 350px;
     height: 50px;
     margin-top: 25px;
@@ -44,19 +43,27 @@
 }
 
 /* Pokémon types icons size configuration */
-.pokemon_types_container img {
+#pokemon_types_container img {
     width: 120px;
     display: inline-block;
     margin-right: 5px;
 }
 
-.pokemon_image_container {
+/* General configuration (size, alignment) of the Pokémon image container */
+#pokemon_image_container {
     width: 350px;
     height: 250px;
     margin-left: 50px;
     clear: both;
     float: left;
     background-color: red;
+}
+
+/* Pokémon image size configuration */
+#pokemon_image_container img {
+    width: 230px;
+    display: inline-block;
+    margin: 10px 60px;
 }
 
 .pokemon_stats_container {

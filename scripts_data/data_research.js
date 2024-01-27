@@ -6,7 +6,6 @@
 function display_search_suggestions() {
     // Retrieve the text written in the search bar and convert it to lower case
     let search_bar_content = document.getElementById('search_bar').value.toLowerCase();
-    console.log('Searched :', search_bar_content);
 
     // Compute the first 5 matching suggestions in Pokémon data names matching the search
     let matching_names = [], matching_names_number = 0, current_search_id = 0;
@@ -86,13 +85,16 @@ function display_searched_pokemon_data(pokemon_array) {
         const pokemon_data = pokemon_array[0];
         // Display the Pokémon data into the dedicated space for search result
         let capitalized_pokemon_name = pokemon_data['Name'].substr(0, 1).toUpperCase() + pokemon_data['Name'].slice(1);
-        document.getElementById('pokemon_name').innerHTML = capitalized_pokemon_name;
+        document.getElementById('pokemon_name_container').innerHTML = capitalized_pokemon_name;
+        // Format and display the Pokémon types (one or two)
         let formatted_pokemon_types = '<img src="images/pokemon-types/type_' + pokemon_data['Type 1'] + '_bulbapedia.png" style="width:120px;"/>';
         if(pokemon_data['Type 2'] !== null) {
             formatted_pokemon_types += '<img src="images/pokemon-types/type_' + pokemon_data['Type 2'] + '_bulbapedia.png" style="width:120px;"/>';
         }
-        document.getElementById('pokemon_types').innerHTML = formatted_pokemon_types;
-        document.getElementById('pokemon_image').innerHTML = '';
+        document.getElementById('pokemon_types_container').innerHTML = formatted_pokemon_types;
+        //
+        let formatted_pokemon_image = '<img src=' + pokemon_data['Image'] + ' style="width:230px;"/>';
+        document.getElementById('pokemon_image_container').innerHTML = formatted_pokemon_image;
         // Format and display the various statistics of the Pokémon
         let formatted_pokemon_stats = '<b>HP</b>: ' + pokemon_data['Stats']['HP'] + '<br/>';
         formatted_pokemon_stats += '<b>Attack</b>: ' + pokemon_data['Stats']['Attack'] + '<br/>';

@@ -30,6 +30,9 @@ async function retrieve_pokemon_data() {
             second_type = pokemon_types[1]['type']['name'];
         }
 
+        // Retrieve the Pokémon official artwork from Pokémon Home
+        let pokemon_image = pokemon_data['sprites']['other']['home']['front_default'];
+
         // Retrieve the base statistics of the current Pokémon
         let pokemon_stats = pokemon_data['stats'];
         // Build the complete Pokémon data object with retrieved information
@@ -38,6 +41,7 @@ async function retrieve_pokemon_data() {
             'Name': pokemon_name,
             'Type 1': first_type,
             'Type 2': second_type,
+            'Image': pokemon_image,
             'Stats': {
                 'HP':               pokemon_stats[0]['base_stat'],
                 'Attack':           pokemon_stats[1]['base_stat'],
