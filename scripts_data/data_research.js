@@ -85,10 +85,17 @@ function display_searched_pokemon_data(pokemon_array) {
         // Extract the Pokémon data from the search resulting object
         const pokemon_data = pokemon_array[0];
         // Display the Pokémon data into the dedicated space for search result
-        document.getElementById('pokemon_name').innerHTML = pokemon_data['Name'].toString();
-        document.getElementById('pokemon_types').innerHTML = ''
-        document.getElementById('pokemon_image').innerHTML = ''
-        document.getElementById('pokemon_stats').innerHTML = JSON.stringify(pokemon_data['Stats'])
+        let capitalized_pokemon_name = pokemon_data['Name'].substr(0, 1).toUpperCase() + pokemon_data['Name'].slice(1);
+        document.getElementById('pokemon_name').innerHTML = capitalized_pokemon_name;
+        document.getElementById('pokemon_types').innerHTML = '';
+        document.getElementById('pokemon_image').innerHTML = '';
+        let formatted_pokemon_stats = '<b>HP</b>: ' + pokemon_data['Stats']['HP'] + '<br/>';
+        formatted_pokemon_stats += '<b>Attack</b>: ' + pokemon_data['Stats']['Attack'] + '<br/>';
+        formatted_pokemon_stats += '<b>Defense</b>: ' + pokemon_data['Stats']['Defense'] + '<br/>';
+        formatted_pokemon_stats += '<b>Special Attack</b>: ' + pokemon_data['Stats']['Special Attack'] + '<br/>';
+        formatted_pokemon_stats += '<b>Special Defense</b>: ' + pokemon_data['Stats']['Special Defense'] + '<br/>';
+        formatted_pokemon_stats += '<b>Special Speed</b>: ' + pokemon_data['Stats']['Speed'];
+        document.getElementById('pokemon_stats').innerHTML = formatted_pokemon_stats;
     }
 }
 

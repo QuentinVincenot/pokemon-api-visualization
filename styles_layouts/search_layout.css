@@ -1,0 +1,81 @@
+/*--------------------------------------------------------------------------------
+----- Global page configuration
+--------------------------------------------------------------------------------*/
+
+/* Import the font resource to use Roboto */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap');
+
+/*--------------------------------------------------------------------------------
+----- Search container layout
+--------------------------------------------------------------------------------*/
+
+/* Configuration of the global search container with the search bar, button and suggestions */
+.search_container {
+    height: 100px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+}
+
+/* Configuration of the search zone inside the search container (to be centered) */
+.search_zone {
+    position: relative;
+    top: 20px;
+    left: 100px;
+    width: 600px;
+    height: 40px;
+    padding-top: 20px;
+}
+
+/* Display and alignment of the label in front of the search bar */
+#search_label {
+    display: inline-block;
+    width: 150px;
+    margin-left: 25px;
+    text-align: right;
+}
+
+/* Configuration of the search bar to have a certain length */
+#search_bar {
+    display: inline-block;
+    width: 300px;
+}
+
+/* Configuration (margin) of the 'Search' button */
+#search_button {
+    margin-right: 25px;
+}
+
+/* Configuration of the zone containing all suggestions while searching */
+#search_suggestions {
+    width: 298px;
+    position: relative;
+    left: 180px;
+    top: -16px;
+    padding: 0;
+}
+
+/* General configuration of every individual search suggestion */
+#search_suggestions > li {
+    position: relative;
+    left: -1px;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    list-style-type: none;
+    background-color: #efefef;
+    border-left: solid 1px #dedede;
+    border-right: solid 1px #dedede;
+    border-bottom: solid 1px #dedede;
+}
+
+/* Round borders configuration of the last search suggestion */
+#search_suggestions > li:nth-last-child(1) {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/* Hovering behaviour of the search suggestions */
+#search_suggestions > li:hover {
+    background-color: #ffffff;
+}
