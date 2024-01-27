@@ -19,8 +19,7 @@ function display_search_suggestions() {
     }
 
     // Clear previous suggestions items
-    let suggestions_area = document.getElementById('search_suggestions');
-    suggestions_area.innerHTML = '';
+    hide_search_suggestions();
     
     // Display suggestions based on the current search
     for(let i=0; i<matching_names.length; i++) {
@@ -31,8 +30,16 @@ function display_search_suggestions() {
         // Add a click event listener to perform the search when selecting a suggestion
         suggestion_item.addEventListener('click', select_suggestion);
         // Display the suggestion in a list
+        let suggestions_area = document.getElementById('search_suggestions');
         suggestions_area.appendChild(suggestion_item);
     }
+}
+
+// 
+function hide_search_suggestions(event) {
+    // Clear every existing suggestions items to hide them
+    let suggestions_area = document.getElementById('search_suggestions');
+    suggestions_area.innerHTML = '';
 }
 
 //
@@ -50,8 +57,7 @@ function select_suggestion(event) {
     let search_bar_content = document.getElementById('search_bar');
     search_bar_content.value = escaped_suggestion;
     // Hide the previously displayed suggestions
-    let suggestions_area = document.getElementById('search_suggestions');
-    suggestions_area.innerHTML = '';
+    hide_search_suggestions();
     
     // Perform the search with the selected suggested Pokémon
     search_for_pokemon();
