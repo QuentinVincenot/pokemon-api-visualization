@@ -12,7 +12,7 @@ body {
 }
 
 /*--------------------------------------------------------------------------------
------ Application title and main container configurations
+----- Application title, main container and footer configurations
 --------------------------------------------------------------------------------*/
 
 /* Configure the application title with a dedicated colored/sized/bordered zone */
@@ -33,4 +33,17 @@ body {
     width: 800px;
     height: 500px;
     margin-top: 5px;
+}
+
+/* Configure the application footer layout with a dedicated colored/sized/bordered zone */
+.application_footer {
+    height: 25px;
+    margin-top: 5px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
 }
