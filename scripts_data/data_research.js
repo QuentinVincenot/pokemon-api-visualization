@@ -6,6 +6,10 @@
 function display_search_suggestions() {
     // Retrieve the text written in the search bar and convert it to lower case
     let search_bar_content = document.getElementById('search_bar').value.toLowerCase();
+    // Enable/disable search/clear buttons depending on the current search content
+    let search_bar_empty = (search_bar_content.length == 0);
+    document.getElementById('search_button').disabled = search_bar_empty;
+    document.getElementById('clear_button').disabled = !search_bar_empty;
 
     // Compute the first 5 matching suggestions in Pokémon data names matching the search
     let matching_names = [], matching_names_number = 0, current_search_id = 0;
@@ -60,6 +64,9 @@ function select_suggestion(event) {
     
     // Perform the search with the selected suggested Pokémon
     search_for_pokemon();
+
+    // Enable the clear button once a search suggestion has been selected
+    document.getElementById('clear_button').disabled = false;
 }
 
 // Function to search and filter for a specific Pokémon through the search bar
@@ -131,6 +138,17 @@ function display_searched_pokemon_data(pokemon_array) {
     }
 }
 
+//
+function clear_search_results() {
+    // Clear the content of the complete Pokémon information zone and subzones
+    document.getElementById('pokemon_name_container').innerHTML = '';
+    document.getElementById('pokemon_types_container').innerHTML = '';
+    document.getElementById('pokemon_image_container').innerHTML = '';
+    document.getElementById('pokemon_stats_container').innerHTML = '';
+    // Disable the clear button once a clearing operation has been done
+    document.getElementById('clear_button').disabled = true;
+}
+
 
 // Retrieve the search bar and map its behaviour with the suggestions display function
 const search_bar = document.getElementById('search_bar');
@@ -139,3 +157,7 @@ search_bar.addEventListener('keyup', display_search_suggestions);
 // Retrieve the search button and map its click behaviour on the research function
 const search_button = document.getElementById('search_button');
 search_button.addEventListener('click', search_for_pokemon);
+
+// Retrieve the clear button and map its click behaviour on the clear function
+const clear_button = document.getElementById('clear_button');
+clear_button.addEventListener('click', clear_search_results);

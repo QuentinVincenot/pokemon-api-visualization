@@ -5,8 +5,12 @@
 // Function to retrieve data about Pokémons (names, types, stats, images, etc.)
 async function retrieve_pokemon_data() {
     // Disable the search bar while data is completely retrieved from the API
+    document.getElementById('search_bar').value = '';
     document.getElementById('search_bar').disabled = true;
     document.getElementById('search_bar').style.backgroundColor = "#CCC";
+    // Disable search and clear buttons for the same reason at the page loading phase
+    document.getElementById('search_button').disabled = true;
+    document.getElementById('clear_button').disabled = true;
 
     // First API call to retrieve the list of every Pokémon
     let response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1025&offset=0');

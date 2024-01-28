@@ -22,7 +22,7 @@
     position: relative;
     top: 20px;
     left: 100px;
-    width: 600px;
+    width: 630px;
     height: 40px;
     padding-top: 20px;
 }
@@ -43,6 +43,11 @@
 
 /* Configuration (margin) of the 'Search' button */
 #search_button {
+    width: 55px;
+}
+
+#clear_button {
+    width: 55px;
     margin-right: 25px;
 }
 
