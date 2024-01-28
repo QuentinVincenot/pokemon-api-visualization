@@ -29,7 +29,6 @@
     line-height: 50px;
     font-family: 'Roboto', sans-serif;
     font-size: 22px;
-    background-color: blue;
 }
 
 /* General configuration (size, alignment) of the Pokémon types container */
@@ -40,7 +39,6 @@
     float: left;
     text-align: center;
     line-height: 63px;
-    background-color: green;
 }
 
 /* Pokémon types icons size configuration */
@@ -57,7 +55,6 @@
     margin-left: 50px;
     clear: both;
     float: left;
-    background-color: red;
 }
 
 /* Pokémon image size configuration */
@@ -71,7 +68,6 @@
     width: 350px;
     height: 250px;
     float: left;
-    background-color: yellow;
 }
 
 #pokemon_stats_container table {

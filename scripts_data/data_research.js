@@ -116,7 +116,9 @@ function display_searched_pokemon_data(pokemon_array) {
             let stat_value_div = document.createElement('div');
             stat_value_div.style['width'] = '' + Math.round((pokemon_data['Stats'][statistics[i]] * 0.85)) + 'px';
             console.log(pokemon_data['Stats'][statistics[i]]);
-            stat_value_div.style['background-color'] = "blue";
+            stat_value_div.style['background-color'] = '#89CFF0';
+            stat_value_div.style['border-radius'] = '10px';
+            stat_value_div.style['padding-left'] = '5px';
             stat_value_div.innerHTML = pokemon_data['Stats'][statistics[i]];
             stat_value_cell.appendChild(stat_value_div);
             stat_row.appendChild(stat_value_cell);
