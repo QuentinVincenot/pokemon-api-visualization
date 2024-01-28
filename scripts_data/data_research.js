@@ -2,7 +2,7 @@
 ----- POKEMONS RESEARCH LOGIC IMPLEMENTATION
 --------------------------------------------------------------------------------*/
 
-//
+// Function to display search suggestions based on the search bar current content
 function display_search_suggestions() {
     // Retrieve the text written in the search bar and convert it to lower case
     let search_bar_content = document.getElementById('search_bar').value.toLowerCase();
@@ -34,14 +34,14 @@ function display_search_suggestions() {
     }
 }
 
-// 
+// Function to hide the displayed search suggestions
 function hide_search_suggestions(event) {
     // Clear every existing suggestions items to hide them
     let suggestions_area = document.getElementById('search_suggestions');
     suggestions_area.innerHTML = '';
 }
 
-//
+// Function the trigger the search when selecting a search suggestion
 function select_suggestion(event) {
     // Retrieve the clicked suggestion with the click event
     let clicked_suggestion = event.target;
@@ -62,7 +62,7 @@ function select_suggestion(event) {
     search_for_pokemon();
 }
 
-//
+// Function to search and filter for a specific Pokémon through the search bar
 function search_for_pokemon() {
     // Retrieve the text written in the search bar and convert it to lower case
     let search_bar_content = document.getElementById('search_bar').value.toLowerCase();
@@ -72,7 +72,7 @@ function search_for_pokemon() {
     display_searched_pokemon_data(found_pokemons);
 }
 
-// 
+// Function to display the complete information page of a searched Pokémon
 function display_searched_pokemon_data(pokemon_array) {
     if(pokemon_array.length != 1) {
         // Erase everything that was displayed before when no Pokémon has been found
@@ -83,31 +83,54 @@ function display_searched_pokemon_data(pokemon_array) {
     } else {
         // Extract the Pokémon data from the search resulting object
         const pokemon_data = pokemon_array[0];
+
         // Display the Pokémon data into the dedicated space for search result
         let capitalized_pokemon_name = pokemon_data['Name'].substr(0, 1).toUpperCase() + pokemon_data['Name'].slice(1);
         document.getElementById('pokemon_name_container').innerHTML = capitalized_pokemon_name;
+
         // Format and display the Pokémon types (one or two)
         let formatted_pokemon_types = '<img src="images/pokemon-types/type_' + pokemon_data['Type 1'] + '_bulbapedia.png" style="width:120px;"/>';
         if(pokemon_data['Type 2'] !== null) {
             formatted_pokemon_types += '<img src="images/pokemon-types/type_' + pokemon_data['Type 2'] + '_bulbapedia.png" style="width:120px;"/>';
         }
         document.getElementById('pokemon_types_container').innerHTML = formatted_pokemon_types;
-        //
+
+        // Format and display the official image of the Pokémon
         let formatted_pokemon_image = '<img src=' + pokemon_data['Image'] + ' style="width:230px;"/>';
         document.getElementById('pokemon_image_container').innerHTML = formatted_pokemon_image;
+        
         // Format and display the various statistics of the Pokémon
-        let formatted_pokemon_stats = '<b>HP</b>: ' + pokemon_data['Stats']['HP'] + '<br/>';
-        formatted_pokemon_stats += '<b>Attack</b>: ' + pokemon_data['Stats']['Attack'] + '<br/>';
-        formatted_pokemon_stats += '<b>Defense</b>: ' + pokemon_data['Stats']['Defense'] + '<br/>';
-        formatted_pokemon_stats += '<b>Special Attack</b>: ' + pokemon_data['Stats']['Special Attack'] + '<br/>';
-        formatted_pokemon_stats += '<b>Special Defense</b>: ' + pokemon_data['Stats']['Special Defense'] + '<br/>';
-        formatted_pokemon_stats += '<b>Special Speed</b>: ' + pokemon_data['Stats']['Speed'];
-        document.getElementById('pokemon_stats').innerHTML = formatted_pokemon_stats;
+        document.getElementById('pokemon_stats_container').innerHTML = '';
+        let statistics = ['HP', 'Attack', 'Defense', 'Special Attack', 'Special Defense', 'Speed'];
+        let formatted_pokemon_stats_table = document.createElement('table');
+        for(let i=0; i<statistics.length; i++) {
+            // Create a new row for the current statistic
+            let stat_row = document.createElement('tr');
+            // Create a new cell for the current statistic name
+            let stat_name_cell = document.createElement('td');
+            stat_name_cell.innerHTML = statistics[i];
+            stat_row.appendChild(stat_name_cell);
+
+            // Create a new cell for the current statistic value
+            let stat_value_cell = document.createElement('td');
+            let stat_value_div = document.createElement('div');
+            stat_value_div.style['width'] = '' + Math.round((pokemon_data['Stats'][statistics[i]] * 0.85)) + 'px';
+            console.log(pokemon_data['Stats'][statistics[i]]);
+            stat_value_div.style['background-color'] = "blue";
+            stat_value_div.innerHTML = pokemon_data['Stats'][statistics[i]];
+            stat_value_cell.appendChild(stat_value_div);
+            stat_row.appendChild(stat_value_cell);
+
+            // Add the current statistic row to the Pokémon statistics table
+            formatted_pokemon_stats_table.appendChild(stat_row);
+        }
+        // Add the complete statistics table to the Pokémon page
+        document.getElementById('pokemon_stats_container').appendChild(formatted_pokemon_stats_table);
     }
 }
 
 
-//
+// Retrieve the search bar and map its behaviour with the suggestions display function
 const search_bar = document.getElementById('search_bar');
 search_bar.addEventListener('keyup', display_search_suggestions);
 

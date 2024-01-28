@@ -28,6 +28,7 @@
     text-align: center;
     line-height: 50px;
     font-family: 'Roboto', sans-serif;
+    font-size: 22px;
     background-color: blue;
 }
 
@@ -66,9 +67,21 @@
     margin: 10px 60px;
 }
 
-.pokemon_stats_container {
+#pokemon_stats_container {
     width: 350px;
     height: 250px;
     float: left;
     background-color: yellow;
+}
+
+#pokemon_stats_container table {
+    margin-top: 70px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+}
+
+#pokemon_stats_container table td:nth-child(1) {
+    display: block;
+    width: 90px;
+    text-align: right;
 }
