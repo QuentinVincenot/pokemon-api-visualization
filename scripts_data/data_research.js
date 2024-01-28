@@ -129,6 +129,9 @@ function display_searched_pokemon_data(pokemon_array) {
         // Add the complete statistics table to the Pokémon page
         document.getElementById('pokemon_stats_container').appendChild(formatted_pokemon_stats_table);
         
+        // Hide the previously displayed suggestions
+        hide_search_suggestions();
+
         // Enable the clear button once a Pokémon has been displayed
         POKEMON_IS_DISPLAYED = true;
         document.getElementById('clear_button').disabled = !POKEMON_IS_DISPLAYED;
