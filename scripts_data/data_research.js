@@ -9,7 +9,7 @@ function display_search_suggestions() {
     // Enable/disable search/clear buttons depending on the current search content
     let search_bar_empty = (search_bar_content.length == 0);
     document.getElementById('search_button').disabled = search_bar_empty;
-    document.getElementById('clear_button').disabled = !search_bar_empty;
+    document.getElementById('clear_button').disabled = !POKEMON_IS_DISPLAYED;
 
     // Compute the first 5 matching suggestions in Pokémon data names matching the search
     let matching_names = [], matching_names_number = 0, current_search_id = 0;
@@ -64,9 +64,6 @@ function select_suggestion(event) {
     
     // Perform the search with the selected suggested Pokémon
     search_for_pokemon();
-
-    // Enable the clear button once a search suggestion has been selected
-    document.getElementById('clear_button').disabled = false;
 }
 
 // Function to search and filter for a specific Pokémon through the search bar
@@ -83,10 +80,7 @@ function search_for_pokemon() {
 function display_searched_pokemon_data(pokemon_array) {
     if(pokemon_array.length != 1) {
         // Erase everything that was displayed before when no Pokémon has been found
-        document.getElementById('pokemon_name').innerHTML = ''
-        document.getElementById('pokemon_types').innerHTML = ''
-        document.getElementById('pokemon_image').innerHTML = ''
-        document.getElementById('pokemon_stats').innerHTML = ''
+        clear_search_results();
     } else {
         // Extract the Pokémon data from the search resulting object
         const pokemon_data = pokemon_array[0];
@@ -122,7 +116,6 @@ function display_searched_pokemon_data(pokemon_array) {
             let stat_value_cell = document.createElement('td');
             let stat_value_div = document.createElement('div');
             stat_value_div.style['width'] = '' + Math.round((pokemon_data['Stats'][statistics[i]] * 0.85)) + 'px';
-            console.log(pokemon_data['Stats'][statistics[i]]);
             stat_value_div.style['background-color'] = '#89CFF0';
             stat_value_div.style['border-radius'] = '10px';
             stat_value_div.style['padding-left'] = '5px';
@@ -135,10 +128,14 @@ function display_searched_pokemon_data(pokemon_array) {
         }
         // Add the complete statistics table to the Pokémon page
         document.getElementById('pokemon_stats_container').appendChild(formatted_pokemon_stats_table);
+        
+        // Enable the clear button once a Pokémon has been displayed
+        POKEMON_IS_DISPLAYED = true;
+        document.getElementById('clear_button').disabled = !POKEMON_IS_DISPLAYED;
     }
 }
 
-//
+// Function to clear search results and previously displayed Pokémon information
 function clear_search_results() {
     // Clear the content of the complete Pokémon information zone and subzones
     document.getElementById('pokemon_name_container').innerHTML = '';
@@ -146,9 +143,13 @@ function clear_search_results() {
     document.getElementById('pokemon_image_container').innerHTML = '';
     document.getElementById('pokemon_stats_container').innerHTML = '';
     // Disable the clear button once a clearing operation has been done
-    document.getElementById('clear_button').disabled = true;
+    POKEMON_IS_DISPLAYED = false;
+    document.getElementById('clear_button').disabled = !POKEMON_IS_DISPLAYED;
 }
 
+
+// Information whether a Pokémon is currently displayed or not
+let POKEMON_IS_DISPLAYED = false;
 
 // Retrieve the search bar and map its behaviour with the suggestions display function
 const search_bar = document.getElementById('search_bar');

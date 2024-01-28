@@ -21,7 +21,7 @@
 .search_zone {
     position: relative;
     top: 20px;
-    left: 100px;
+    left: 85px;
     width: 630px;
     height: 40px;
     padding-top: 20px;
@@ -31,7 +31,6 @@
 #search_label {
     display: inline-block;
     width: 150px;
-    margin-left: 25px;
     text-align: right;
 }
 
@@ -48,14 +47,13 @@
 
 #clear_button {
     width: 55px;
-    margin-right: 25px;
 }
 
 /* Configuration of the zone containing all suggestions while searching */
 #search_suggestions {
     width: 298px;
     position: relative;
-    left: 180px;
+    left: 155px;
     top: -16px;
     padding: 0;
 }
