@@ -20,40 +20,26 @@ async function retrieve_pokemon_data() {
     for(let pokemon_id=1; pokemon_id<=data['results'].length; pokemon_id++) {
         // Retrieve the current Pokémon name
         let pokemon_name = data['results'][pokemon_id-1]['name'];
+
+        // Retrieve the URL to make a second call later and retrieve the Pokémon information
+        let pokemon_url = data['results'][pokemon_id-1]['url'];
         
-        // Second API call to retrieve for a single Pokémon many information, especially its base statistics
-        let response2 = await fetch(data['results'][pokemon_id-1]['url']);
-        let pokemon_data = await response2.json();
-
-        // Retrieve the types of the current Pokémon
-        let pokemon_types = pokemon_data['types'];
-        let first_type = pokemon_types[0]['type']['name'];
-        let second_type = null;
-        // Process the case where the Pokémon has two types
-        if(pokemon_types.length == 2) {
-            second_type = pokemon_types[1]['type']['name'];
-        }
-
-        // Retrieve the Pokémon official artwork from Pokémon Home
-        let pokemon_image = pokemon_data['sprites']['other']['home']['front_default'];
-
-        // Retrieve the base statistics of the current Pokémon
-        let pokemon_stats = pokemon_data['stats'];
-        // Build the complete Pokémon data object with retrieved information
+        // Build the complete Pokémon data object with retrieved information and placeholders
         let current_pokemon_data = {
             'ID': pokemon_id,
             'Name': pokemon_name,
-            'Type 1': first_type,
-            'Type 2': second_type,
-            'Image': pokemon_image,
+            'Type 1': undefined,
+            'Type 2': undefined,
+            'Image': undefined,
             'Stats': {
-                'HP':               pokemon_stats[0]['base_stat'],
-                'Attack':           pokemon_stats[1]['base_stat'],
-                'Defense':          pokemon_stats[2]['base_stat'],
-                'Special Attack':   pokemon_stats[3]['base_stat'],
-                'Special Defense':  pokemon_stats[4]['base_stat'],
-                'Speed':            pokemon_stats[5]['base_stat'],
-            }
+                'HP':               undefined,
+                'Attack':           undefined,
+                'Defense':          undefined,
+                'Special Attack':   undefined,
+                'Special Defense':  undefined,
+                'Speed':            undefined,
+            },
+            'URL': pokemon_url
         };
         // Save the current Pokémon retrieved information within a global list
         POKEMON_DATA.push(current_pokemon_data);
